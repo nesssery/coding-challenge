@@ -10,7 +10,7 @@ class CustomCreationModel3DForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Le titre de votre image"})
     )
     description = forms.CharField(
-        max_length=1024,
+        max_length=1048576,
         required=True,
         label="Donner une courte description de couverture",
         widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': "Donner une courte description de couverture", 'rows': 5, 'cols': 40})
