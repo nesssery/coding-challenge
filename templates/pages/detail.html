@@ -26,13 +26,13 @@
                         <a href="">
                             <span class="badge bg-danger me-1">
                                 <strong>Badge(s) :</strong>
-                                {% if model3dObject.user.badgeList == None %}
+                                {% if Model3d.user.badgeList == None %}
                                 <strong>
                                 Aucun badge
                                 </strong>
                                 {% else %}
                                 <strong>
-                                {{ model3dObject.user.badgeList|join:", " }}
+                                {{ Model3d.user.badgeList|join:", " }}
                                 </strong>
                                 {% endif %}
                             </span>
