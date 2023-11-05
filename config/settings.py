@@ -17,7 +17,7 @@ env.read_env()
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 0
+DEBUG = 1
 
 ALLOWED_HOSTS = env.str("DJANGO_ALLOWED_HOSTS").split(" ")
 
@@ -200,14 +200,5 @@ else:
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-CRON_PYTHON_INTERPRETEUR = sys.executable
-CRON_DJANGO_MANAGE_PY = os.path.join(BASE_DIR, 'manage.py')
-CRON_DJANGO_HOME = os.path.join(BASE_DIR, '/')
-CRON_LOG_DIR = os.path.join(BASE_DIR, 'logs/')
-CRONTAB_DJANGO_PROJECT_NAME = "coding-challenge"
-CRONJOBS = [
-    ('*/1 * * * *', 'utils.checkUserViews.handle', '>> {}'.format(os.path.join(BASE_DIR, 'logs/checkUserViews.log'))),
-    ('*/1 * * * *', 'utils.test.hello', '>> {}'.format(os.path.join(BASE_DIR, 'logs/test.log'))),]
 
 
