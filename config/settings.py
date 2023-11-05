@@ -84,7 +84,7 @@ if DEBUG == True:
             'ENGINE': 'django.db.backends.postgresql',
             'USER': 'nesssery',
             'PASSWORD': '7107@-PythonSwift@-7107',
-            'HOST': '192.168.1.80',
+            'HOST': 'localhost',
             'PORT': 5432,
             'NAME': 'coding_challenge_db'
         }
