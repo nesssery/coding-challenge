@@ -7,7 +7,7 @@ from stores.models import Model3d, Badge, UserBadge
 @admin.register(Model3d)
 class Model3dAdmin(admin.ModelAdmin):
     model = Model3d
-    list_display = ("id", "title", "description", 'image')
+    list_display = ("id", "title", 'image')
     list_filter = ("title", "dateAdded",)
     search_fields = ("title", "title",)
     save_on_top = True
