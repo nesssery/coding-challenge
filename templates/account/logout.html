@@ -1,0 +1,18 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+{% block title %}Déconnexion{% endblock %}
+{% block content %}
+<section style="padding-top: 70px; padding-bottom: 70px;">
+   <div class="container" style="display: flex; justify-content: center; height: 100%;">
+    <div style="width: 50%; margin: auto; text-align: center;">
+        <p>Voulez-vous vous déconnectez ?</p>
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-danger" type="submit">Déconnexion</button>
+        </form>
+    </div>
+</div>
+</section>
+
+{% endblock content %}

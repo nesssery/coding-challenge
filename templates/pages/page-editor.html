@@ -1,0 +1,36 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+{% block content %}
+<main id="main" class="mx-5">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+            <div class="row mb-3">
+                <div class="col-sm-6" style="margin: auto;">
+                    <h5 style="text-align: center; color: #192a56;" class="py-5">Poster votre image 3D</h1>
+                    <div class="form-floating mb-3">
+                        {{ form.image }}
+                        <label for="floatingInput">IMAGE 3D</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.title }}
+                        <label for="floatingInput">TITRE DE COUVERTURE</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.description }}
+                        <label for="floatingInput">DESCRIPTION DE COUVERTURE</label>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3" style="margin: auto;">
+                    <div class="text-center py-4">
+                        <button style="background-color: #0a3d62; color: #ffffff;" class="btn w-100" type="submit">Soumettre</button>
+                    </div>
+                </div>
+            </div>
+            
+    </form>
+</main><!-- End #main -->
+{% endblock content %}

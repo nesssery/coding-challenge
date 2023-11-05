@@ -1,0 +1,48 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+{% block content %}
+<section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center" style="padding-bottom: 150px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="pt-4 pb-2">
+                            <h5 class="card-title text-center pb-0 fs-4">CRÉER UN COMPTE</h5>
+                            <p class="text-center small">Entrez vos informations personnelles pour créer un compte</p>
+                        </div>
+                        {% if form.errors %}
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <h5 style="text-align: center; text-transform: uppercase;">{{ error }}</p>
+                            <button style="font-weight: bold;" type="button" class="btn-close btn-close-black" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% endif %}
+                        <form method="POST" class="row g-3 needs-validation" novalidate>
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="col-12">
+                                <label for="" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                            {% endfor %}
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100" type="submit">Créer votre compte</button>
+                            </div>
+                            <div class="col-12">
+                                <p class="small mb-0">Vous avez déjà un compte? <a
+                                        href="{% url 'account_login' %}">Connexion</a></p>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

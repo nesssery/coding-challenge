@@ -1,0 +1,49 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+{% block title %}Connexion{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center" style="margin-bottom: 100px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="pt-4 pb-2">
+              <h5 class="card-title text-center pb-0 fs-4">Connectez-vous à votre compte</h5>
+              <p class="text-center small">Entrez votre nom d'utilisateur et votre mot de passe pour vous connecter</p>
+            </div>
+            {% if form.errors %}
+            {% for field in form %}
+            {% for error in field.errors %}
+            <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert">
+              {{ error }}
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close">
+              </button>
+            </div>
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+            <form method="POST" class="row g-3 needs-validation" novalidate>
+              {% csrf_token %}
+              <div class="col-12">
+                {{ form|crispy }}
+              </div>
+              <div class="col-12 form-control">
+                <button class="btn btn-primary w-100" type="submit">Connexion</button>
+              </div>
+              <div class="col-12">
+                <p class="small mb-0">Vous n'avez pas de compte ? <a href="{% url 'account_signup' %}">Créer un
+                    compte</a></p>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% endblock content %}

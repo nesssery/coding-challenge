@@ -1,0 +1,88 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+{% block content %}
+<!--Main layout-->
+<main class="mt-5 pt-4">
+    <div class="container mt-5">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <img src="{{ Model3d.imageURL }}" class="img-fluid" />
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <!--Content-->
+                <div class="p-4">
+                    <div class="mb-3">
+                        <a href="">
+                            <span class="badge bg-dark me-1">{{ Model3d.user }}</span>
+                        </a>
+                        <a href="">
+                            <span class="badge bg-info me-1">{{ Model3d.views }} vue(s)</span>
+                        </a>
+                        <a href="">
+                            <span class="badge bg-danger me-1">
+                                <strong>Badge(s) :</strong>
+                                {% for userBadge in userBadges %}
+                                {% if userBadge.badge.name == "Star" %}
+                                <strong> -
+                                    {{ userBadge.badge }}
+                                </strong>
+                                {% endif %}
+                                {% if userBadge.badge.name == "Collector" %}
+                                <strong> -
+                                    {{ userBadge.badge }}
+                                </strong>
+                                {% endif %}
+                                {% if userBadge.badge.name == "Pionneer" %}
+                                <strong>
+                                    {{ userBadge.badge }}
+                                </strong>
+                                {% endif %}
+                                {% endfor %}
+                            </span>
+                        </a>
+                    </div>
+                    <strong>
+                        <p style="font-size: 20px;">Description</p>
+                    </strong>
+                    <p>{{ Model3d.description }}</p>
+                </div>
+                <!--Content-->
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+
+        <hr />
+
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-md-6 text-center">
+                <h4 class="my-4 h4">Images récents</h4>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+            {% for latestObject in latestObjects %}
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-12 mb-4">
+                <a href="{% url 'detail-view' latestObject.id %}"><img src="{{ latestObject.imageURL }}"
+                        class="img-fluid" /></a>
+            </div>
+            <!--Grid column-->
+            {% endfor %}
+        </div>
+        <!--Grid row-->
+    </div>
+</main>
+<!--Main layout-->
+
+{% endblock content %}
