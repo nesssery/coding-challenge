@@ -27,7 +27,7 @@
               <h5 class="card-title">{{ model3dObject.title }}</h5>
             </a>
             <a href="{% url 'detail-view' model3dObject.id %}" class="text-reset">
-              <p>{{ model3dObject.description }}</p>
+              <p>{{ model3dObject.description|slice:":32" }}</p>
             </a>
             <h5>
               <span class="badge bg-danger ms-2">
