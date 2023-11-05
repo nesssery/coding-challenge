@@ -17,7 +17,7 @@ env.read_env()
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 1
+DEBUG = 0
 
 ALLOWED_HOSTS = env.str("DJANGO_ALLOWED_HOSTS").split(" ")
 
@@ -82,11 +82,11 @@ if DEBUG == True:
      DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'USER': env.str("DB_USER"),
-            'PASSWORD': env.str("DB_PASSWORD"),
-            'HOST': env.str("DB_HOST"),
-            'PORT': env.str("DB_PORT"),
-            'NAME': env.str("DB_NAME")
+            'USER': 'nesssery',
+            'PASSWORD': '7107@-PythonSwift@-7107',
+            'HOST': 'localhost',
+            'PORT': 5432,
+            'NAME': 'coding_challenge_db'
         }
     }
    
